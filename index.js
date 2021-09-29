@@ -8,7 +8,7 @@ require('dotenv').config();
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: process.env.DB_PASSWORD,
+    password: "Free2Code1914!",
     database: "employeemanagementsystem_db"
 });
 
@@ -17,3 +17,4 @@ db.connect(function(err) {
     console.log("Connected to MySQL")
     startPrompt();
 });
+
