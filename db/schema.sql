@@ -14,7 +14,7 @@ CREATE TABLE Roles (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-FOREIGN KEY (movie_id)
-REFERENCES movies (id)
+  department_id INT,
+FOREIGN KEY (Departments_id) REFERENCES Departments (id)
 ON DELETE SET NULL
 );
