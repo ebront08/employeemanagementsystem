@@ -21,3 +21,8 @@ FOREIGN KEY (Departments_id) REFERENCES Departments (id)
 -- Employee table
 CREATE TABLE Employees (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  manager_id INT,
+  role_id INT,
+  
