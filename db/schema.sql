@@ -3,16 +3,17 @@ CREATE DATABASE employeemanagementsystem_db;
 
 USE employeemanagementsystem_db;
 
-
-CREATE TABLE movies (
+-- Department table
+CREATE TABLE Departments (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  movie_name VARCHAR(100) NOT NULL
+  name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE reviews (
+
+CREATE TABLE Roles (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  movie_id INT NOT NULL,
-  review TEXT NOT NULL,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL NOT NULL,
 FOREIGN KEY (movie_id)
 REFERENCES movies (id)
 ON DELETE SET NULL
