@@ -81,13 +81,13 @@ const viewAllDepartments = () => {
 const viewAllRoles = () => {
     figlet("ALL  ROLES", function(err, res) {
         if (err) {
-            console.log('Something went wrong...');
+            console.log('Thats not right...');
             console.dir(err);
             return;
         }
         console.log(res)
     })
-    const query = `SELECT roles.id, roles.title, roles.salary FROM roles`;
+    const query = `SELECT Roles.id, Roles.title, Roles.salary FROM Roles`;
     db.query(query,
         function(err, res) {
             if (err) throw err
@@ -100,7 +100,7 @@ const viewAllRoles = () => {
 const viewAllEmployees = () => {
     figlet("ALL  EMPLOYEES", function(err, res) {
         if (err) {
-            console.log('Something went wrong...');
+            console.log('Thats not right...');
             console.dir(err);
             return;
         }
@@ -130,7 +130,7 @@ const addDepartment = () => {
         type: "input",
         message: "What department would you like to add?"
     }]).then(function(res) {
-        const query = "INSERT INTO departments SET ?";
+        const query = "INSERT INTO Departments SET ?";
         db.query(
             query, {
                 name: res.Name
@@ -142,4 +142,17 @@ const addDepartment = () => {
             }
         )
     })
+};
+
+// selectRole function used in add/update employee prompt 
+let roleArr = [];
+const selectRole = () => {
+    const query = "SELECT * FROM Roles";
+    db.query(query, function(err, res) {
+        if (err) throw err
+        for (var i = 0; i < res.length; i++) {
+            roleArr.push(res[i].title);
+        }
+    })
+    return roleArr;
 };
