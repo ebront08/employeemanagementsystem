@@ -156,3 +156,54 @@ const selectRole = () => {
     })
     return roleArr;
 };
+
+// selectManager function for addEmployee prompt
+let managersArr = [];
+const selectManager = () => {
+    const query = `SELECT first_name, last_name FROM Employees WHERE manager_id IS NULL`;
+    db.query(query, function(err, res) {
+        if (err) throw err
+        for (var i = 0; i < res.length; i++) {
+            managersArr.push(res[i].first_name);
+        }
+    })
+    return managersArr;
+};
+
+// addRole function
+const addRole = () => {
+    figlet("ADD  ROLE", function(err, res) {
+        if (err) {
+            console.log('Something went wrong...');
+            console.dir(err);
+            return;
+        }
+        console.log(res)
+    })
+    const query = `SELECT roles.title, roles.salary FROM roles`;
+    db.query(query, function(err, res) {
+        inquirer.prompt([{
+                name: "Title",
+                type: "input",
+                message: "What is the roles Title?"
+            },
+            {
+                name: "Salary",
+                type: "input",
+                message: "What is the Salary of the role?"
+            }
+        ]).then(function(res) {
+            db.query(
+                "INSERT INTO roles SET ?", {
+                    title: res.Title,
+                    salary: res.Salary,
+                },
+                function(err) {
+                    if (err) throw err
+                    console.table(res);
+                    startPrompt();
+                }
+            )
+        });
+    });
+};
