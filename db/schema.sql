@@ -9,7 +9,7 @@ CREATE TABLE Departments (
   name VARCHAR(30) NOT NULL
 );
 
-
+-- Roles table
 CREATE TABLE Roles (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
@@ -17,3 +17,7 @@ CREATE TABLE Roles (
   department_id INT,
 FOREIGN KEY (Departments_id) REFERENCES Departments (id)
 );
+
+-- Employee table
+CREATE TABLE Employees (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
