@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS movie_db;
-CREATE DATABASE movie_db;
+DROP DATABASE IF EXISTS employeemanagementsystem_db;
+CREATE DATABASE employeemanagementsystem_db;
 
-USE movie_db;
+USE employeemanagementsystem_db;
 
 
 CREATE TABLE movies (
