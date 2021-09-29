@@ -254,3 +254,100 @@ const addEmployee = () => {
         })
     })
 };
+
+// addEmployee function
+const addEmployee = () => {
+    figlet("ADD  EMPLOYEE", function(err, res) {
+        if (err) {
+            console.log('Thats not right...');
+            console.dir(err);
+            return;
+        }
+        console.log(res)
+    })
+    inquirer.prompt([{
+            name: "first_name",
+            type: "input",
+            message: "Enter employee first name"
+        },
+        {
+            name: "last_name",
+            type: "input",
+            message: "Enter employee last name"
+        },
+        {
+            name: "role",
+            type: "list",
+            message: "What is this employees role?",
+            choices: selectRole()
+        },
+        {
+            name: "choice",
+            type: "list",
+            message: "Who is this employees manager?",
+            choices: selectManager()
+        }
+    ]).then(function(val) {
+        const roleId = selectRole().indexOf(val.role) + 1;
+        const managerId = selectManager().indexOf(val.choice) + 1;
+        db.query("INSERT INTO employees SET ?", {
+            first_name: val.first_name,
+            last_name: val.last_name,
+            manager_id: managerId,
+            role_id: roleId
+        }, function(err) {
+            if (err) throw err
+            console.table(val)
+            startPrompt()
+        })
+    })
+};
+
+// updateEmployee function
+const updateEmployee = () => {
+    figlet("UPDATE  EMPLOYEE", function(err, res) {
+        if (err) {
+            console.log('Something went wrong...');
+            console.dir(err);
+            return;
+        }
+        console.log(res)
+    })
+    const query = `SELECT employees.last_name, roles.title FROM employees JOIN roles ON employees.role_id = roles.id`;
+    db.query(query, function(err, res) {
+        if (err) throw err
+        inquirer.prompt([{
+                name: "lastName",
+                type: "rawlist",
+                choices: function() {
+                    let lastName = [];
+                    for (var i = 0; i < res.length; i++) {
+                        lastName.push(res[i].last_name);
+                    }
+                    return lastName;
+                },
+                message: "What is the Employee's last name?",
+            },
+            {
+                name: "role",
+                type: "rawlist",
+                message: "What is the Employees new title?",
+                choices: selectRole()
+            },
+        ]).then(function(val) {
+            let roleId = selectRole().indexOf(val.role) + 1;
+            db.query("UPDATE employees SET ? WHERE ?", [{
+                    last_name: val.lastName,
+
+                }, {
+                    role_id: roleId
+
+                }],
+                function(err) {
+                    if (err) throw err
+                    console.table(val)
+                    startPrompt()
+                })
+        });
+    });
+};
