@@ -87,7 +87,7 @@ const viewAllRoles = () => {
         }
         console.log(res)
     })
-    const query = `SELECT Roles.id, Roles.title, Roles.salary FROM Roles`;
+    const query = `SELECT roles.id, roles.title, roles.salary FROM roles`;
     db.query(query,
         function(err, res) {
             if (err) throw err
@@ -174,7 +174,7 @@ const selectManager = () => {
 const addRole = () => {
     figlet("ADD  ROLE", function(err, res) {
         if (err) {
-            console.log('Something went wrong...');
+            console.log('Thats not right...');
             console.dir(err);
             return;
         }

@@ -1,32 +1,31 @@
-USE employeemanagementsystem_db;
--- seeds for Departments
-INSERT INTO Departments (id, name)
-VALUES (1, "Sales"),
-       (2, "Software"),
+-- Department seeds
+INSERT INTO departments (id,name)
+VALUES (1, "Board"),
+       (2, "Sales"),
        (3, "Engineering"),
        (4, "Finance"),
        (5, "Legal");
 
 -- Role seeds
-INSERT INTO Roles (department_id, title, salary)
-VALUES (1, "Sales Lead", 1000000),
-       (2, "President", 300000),
-       (3, "Salesperson", 80000),
-       (4, "Lead Engineer", 150000),
-       (5, "Software Developer", 120000),
-       (6 "Accountant Manager", 160000),
-       (7, "Accountant", 125000),
-       (8, "Legal Team Lead", 250000),
-       (9, "Lawyer", 190000);
+INSERT INTO roles (department_id, title, salary)
+VALUES (1, "CEO", 2000000),
+       (2, "Sales Lead", 100000),
+       (2, "Salesperson", 80000),
+       (3, "Lead Engineer", 150000),
+       (3, "Software Engineer", 120000),
+       (4, "Accountant Manager", 160000),
+       (4, "Accountant", 125000),
+       (5, "Legal Team Lead", 250000),
+       (5, "Lawyer", 190000);
 
-       -- Employee seeds
+-- Employee seeds
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Tristan", "Ebron", 2, null),
-       ("James", "Ebron", 1, 1),
-       ("John", "Ebron", 3, 1),
-       ("Jackie", "Chan", 4, 3),
-       ("Kevin", "Hart", 5, 2), 
-       ("Anthony", "Brown", 6, 4),
-       ("Chris", "Rock", 7, 4),
-       ("Austin", "Powers", 8, 5),
-       ("Tom", "Jerry", 9, 5);
+VALUES ("Tristan", "Ebron", 1, null),
+       ("John", "Doe", 2, 1),
+       ("Mike", "Chan", 3, 3),
+       ("Ashley", "Rodriguez", 4, 1),
+       ("Kevin", "Tupik", 5, 4), 
+       ("Anthony", "Singh", 6, 1),
+       ("Malia", "Brown", 7, 5),
+       ("Sarah", "Lourd", 8, 1),
+       ("Tom", "Allen", 9, 6);
