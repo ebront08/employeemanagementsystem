@@ -18,3 +18,15 @@ VALUES (1, "Sales Lead", 1000000),
        (7, "Accountant", 125000),
        (8, "Legal Team Lead", 250000),
        (9, "Lawyer", 190000);
+
+       -- Employee seeds
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES ("Tristan", "Ebron", 2, null),
+       ("James", "Ebron", 1, 1),
+       ("John", "Ebron", 3, 1),
+       ("Jackie", "Chan", 4, 3),
+       ("Kevin", "Hart", 5, 2), 
+       ("Anthony", "Brown", 6, 4),
+       ("Chris", "Rock", 7, 4),
+       ("Austin", "Powers", 8, 5),
+       ("Tom", "Jerry", 9, 5);
