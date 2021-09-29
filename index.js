@@ -5,14 +5,14 @@ const cTable = require('console.table');
 require('dotenv').config();
 
 // Connection to SQL database
-const db = mysql.createConnection({
+const sqldb = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "Free2Code1914!",
     database: "employeemanagementsystem_db"
 });
 
-db.connect(function(err) {
+sqldb.connect(function(err) {
     if (err) throw err
     console.log("Connected to MySQL")
     startPrompt();
