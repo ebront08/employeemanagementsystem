@@ -1,13 +1,13 @@
 // Modules
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
-const cTable = require('console.table');
 require('dotenv').config();
 const figlet = require('figlet');
-
+const cTable = require('console.table');
 // Connection to SQL database
 const sqldb = mysql.createConnection({
     host: "localhost",
+    port: "3306",
     user: "root",
     password: "Free2Code1914!",
     database: "employeemanagementsystem_db"
@@ -207,7 +207,7 @@ const addRole = () => {
         });
     });
 };
-// addEmployee function
+// add Employee function
 const addEmployee = () => {
     figlet("ADD  EMPLOYEE", function(err, res) {
         if (err) {
@@ -257,7 +257,7 @@ const addEmployee = () => {
 
 // addEmployee function
 const addEmployee = () => {
-    figlet("ADD  EMPLOYEE", function(err, res) {
+    figlet("ADD EMPLOYEE", function(err, res) {
         if (err) {
             console.log('Thats not right...');
             console.dir(err);
