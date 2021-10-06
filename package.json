@@ -10,11 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "console.table": "^0.10.0",
+    "dotenv": "^10.0.0",
     "figlet": "^1.5.2",
     "inquirer": "^8.1.5",
     "mysql2": "^2.3.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ebront08/employeemanagementsystem.git"
