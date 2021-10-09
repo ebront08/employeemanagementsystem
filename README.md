@@ -1,5 +1,6 @@
 # Employee Management System
   https://github.com/ebront08/Employee Management System
+  Video link : https://drive.google.com/file/d/1-oX4UJbc_CgOBqV_4J4lhUFGvqBUYxlr/view?usp=sharing
 # Description
 This project is a Employee Management System that builds from the command-line an company's employee database, using Node.js, Inquirer, and MySQL. 
 # Table of Contents 
